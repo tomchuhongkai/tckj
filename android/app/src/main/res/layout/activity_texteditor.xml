@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/myEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:padding="10dp"
+        android:minLines="1" 
+        android:maxLines="4"
+        android:lineSpacingExtra="5dp"
+        android:layout_weight="1" 
+        android:inputType="textMultiLine" 
+        android:layout_gravity="center_vertical"
+        android:gravity="left"
+        android:ems="20"
+        android:background="@null"/>
+</LinearLayout>

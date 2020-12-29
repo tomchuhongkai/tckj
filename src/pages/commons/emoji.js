@@ -1,0 +1,132 @@
+const EMOJI_PATH_NAME={
+    "[emoji_1]":'emoji_1',
+    "[emoji_2]":'emoji_2',
+    "[emoji_3]":'emoji_3',
+    "[emoji_4]":'emoji_4',
+    "[emoji_5]":'emoji_5',
+    "[emoji_6]":'emoji_6',
+    "[emoji_7]":'emoji_7',
+    "[emoji_8]":'emoji_8',
+    "[emoji_9]":'emoji_9',
+    "[emoji_10]":'emoji_10',
+    "[emoji_11]":'emoji_11',
+    "[emoji_12]":'emoji_12',
+    "[emoji_13]":'emoji_13',
+    "[emoji_14]":'emoji_14',
+    "[emoji_15]":'emoji_15',
+    "[emoji_16]":'emoji_16',
+    "[emoji_17]":'emoji_17',
+    "[emoji_18]":'emoji_18',
+    "[emoji_19]":'emoji_19',
+    "[emoji_20]":'emoji_20',
+    "[emoji_21]":'emoji_21',
+    "[emoji_22]":'emoji_22',
+    "[emoji_23]":'emoji_23',
+    "[emoji_24]":'emoji_24',
+    "[emoji_25]":'emoji_25',
+    "[emoji_26]":'emoji_26',
+    "[emoji_27]":'emoji_27',
+    "[emoji_28]":'emoji_28',
+    "[emoji_29]":'emoji_29',
+    "[emoji_30]":'emoji_30',
+    "[emoji_31]":'emoji_31',
+}
+const EMOJI_LIST=[{
+    key:'/emoji_1',
+    value:'[emoji_1]'
+},{
+    key:'/emoji_2',
+    value:'[emoji_2]'
+},{
+    key:'/emoji_3',
+    value:'[emoji_3]'
+},{
+    key:'/emoji_4',
+    value:'[emoji_4]'
+},{
+    key:'/emoji_5',
+    value:'[emoji_5]'
+},{
+    key:'/emoji_6',
+    value:'[emoji_6]'
+},{
+    key:'/emoji_7',
+    value:'[emoji_7]'
+},{
+    key:'/emoji_8',
+    value:'[emoji_8]'
+},{
+    key:'/emoji_9',
+    value:'[emoji_9]'
+},{
+    key:'/emoji_10',
+    value:'[emoji_10]'
+},{
+    key:'/emoji_11',
+    value:'[emoji_11]'
+},{
+    key:'/emoji_12',
+    value:'[emoji_12]'
+},{
+    key:'/emoji_13',
+    value:'[emoji_13]'
+},{
+    key:'/emoji_14',
+    value:'[emoji_14]'
+},{
+    key:'/emoji_15',
+    value:'[emoji_15]'
+},{
+    key:'/emoji_16',
+    value:'[emoji_16]'
+},{
+    key:'/emoji_17',
+    value:'[emoji_17]'
+},{
+    key:'/emoji_18',
+    value:'[emoji_18]'
+},{
+    key:'/emoji_19',
+    value:'[emoji_19]'
+},{
+    key:'/emoji_20',
+    value:'[emoji_20]'
+},{
+    key:'/emoji_21',
+    value:'[emoji_21]'
+},{
+    key:'/emoji_22',
+    value:'[emoji_22]'
+},{
+    key:'/emoji_23',
+    value:'[emoji_23]'
+},{
+    key:'/emoji_24',
+    value:'[emoji_24]'
+},{
+    key:'/emoji_25',
+    value:'[emoji_25]'
+},{
+    key:'/emoji_26',
+    value:'[emoji_26]'
+},{
+    key:'/emoji_27',
+    value:'[emoji_27]'
+},{
+    key:'/emoji_28',
+    value:'[emoji_28]'
+},{
+    key:'/emoji_29',
+    value:'[emoji_29]'
+},{
+    key:'/emoji_30',
+    value:'[emoji_30]'
+},{
+    key:'/emoji_31',
+    value:'[emoji_31]'
+}]
+
+export {
+    EMOJI_PATH_NAME,
+    EMOJI_LIST
+}
