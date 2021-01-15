@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import * as api from '../../mocks/api'
 import * as tools from '../../tools/tool'
 import * as locals from '../../tools/localdata'
-// import * as CacheManager from 'react-native-http-cache';
+import * as CacheManager from 'react-native-http-cache';
 import LinearGradient from 'react-native-linear-gradient'
 
 const resetAction = StackActions.reset({
@@ -43,21 +43,21 @@ class MinePage extends Component {
     logout = () => {
         let that = this;
         tools.LogOut();
-        // CacheManager.clearCache();
+        CacheManager.clearCache();
         that.props.navigation.dispatch(resetAction);
     }
     componentDidMount = () => {
-        // let that = this;
-        // CacheManager.getCacheSize().then(res => {
-        //     let cacheSize = Math.round((res / 1024 / 1024) * 100) / 100 + 'M';
-        //     that.setState({
-        //         cacheSize
-        //     })
-        // }, err => {
-        //     that.setState({
-        //         cacheSize: '0M'
-        //     })
-        // })
+        let that = this;
+        CacheManager.getCacheSize().then(res => {
+            let cacheSize = Math.round((res / 1024 / 1024) * 100) / 100 + 'M';
+            that.setState({
+                cacheSize
+            })
+        }, err => {
+            that.setState({
+                cacheSize: '0M'
+            })
+        })
     }
     clearCache = () => {
         let that = this;
