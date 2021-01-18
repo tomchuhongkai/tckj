@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Animated, View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, StatusBar, Dimensions,Alert } from 'react-native'
+import {SafeAreaView, Animated, View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, StatusBar, Dimensions, NativeModules,Alert } from 'react-native'
 import { scaleSize, setSpText, scaleSizeW, Icons } from "../../tools/util";
 import Swiper from 'react-native-swiper';
 import commonStyle from '../../tools/commonstyles'
@@ -9,6 +9,15 @@ import Waiting from '../commons/waiting'
 import PostPicker from '../components/postpicker'
 import BottomItems from '../components/bottomitems';
 import Loading from '../components/loading'
+const {StatusBarManager}=NativeModules;
+let statusBarHeight;
+	if (Platform.OS === "ios") {
+	     StatusBarManager.getHeight(height => {
+	         statusBarHeight = height.height;
+	     });
+	 } else {
+	     statusBarHeight = StatusBar.currentHeight;
+}
 
 const { width, height } = Dimensions.get('window');
 const interval = null
@@ -44,7 +53,6 @@ class HomePage extends Component {
                 this.setState({ isShowTop: !this.state.isShowTop, });
             }
         }, 1000)
-
     }
     componentWillUnmount = () => {
         clearInterval(this.interval);
@@ -177,9 +185,9 @@ class HomePage extends Component {
         }
         if (this.state.Banners != null && this.state.Banners.length > 0) {
             slides = this.state.Banners.map((item, index) => {
-                return (<View style={[styles.bannerimg, { height: scaleSize(300) + StatusBar.currentHeight }]} key={index}>
+                return (<View style={[styles.bannerimg, { height: scaleSize(300) + statusBarHeight }]} key={index}>
                     <TouchableOpacity onPress={() => this.props.navigation.push('AdvDetail', { id: item.id })}>
-                        <Image resizeMode={'cover'} style={[styles.bannerimg, { height: scaleSize(250) + StatusBar.currentHeight }]} source={{ uri: item.image }} />
+                        <Image resizeMode={'cover'} style={[styles.bannerimg, { height: scaleSize(250) + statusBarHeight }]} source={{ uri: item.image }} />
                     </TouchableOpacity>
                 </View>);
             });
@@ -197,10 +205,11 @@ class HomePage extends Component {
             })
         }
         let postdata = [{ key: "1", value: '新机器' }, { key: "2", value: '二手机' }, { key: "3", value: '免费评估' }, { key: "4", value: '机器服务' }, { key: "5", value: '我要找货' }, { key: "6", value: '我要发货' }, { key: "7", value: '服装处理' }, { key: "8", value: '广告投放' }];
-        return (<View style={styles.container}>
+        return (
+        <View style={styles.container}>
            
             {this.state.isShowTop ?
-                <View style={[styles.tongzhi]}>
+                <View style={[styles.tongzhi,{top:scaleSize(80) + statusBarHeight}]}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Image style={{ width: scaleSize(45), height: scaleSize(45), marginRight: scaleSize(6) }} source={require('../../../images/laba.gif')} />
                         <Text style={{ color: '#fff' }}>下载量{this.state.totalDownloadUser}次，注册人数{this.state.totalRegisterUser}</Text>
@@ -216,7 +225,7 @@ class HomePage extends Component {
                 contentContainerStyle={[commonStyle.scrollViewContainer]}>
 
                 <View style={styles.banner}>
-                    <View style={[styles.homeprosearch, { paddingTop: scaleSize(10) + StatusBar.currentHeight }]}>
+                    <View style={[styles.homeprosearch, { paddingTop: scaleSize(5) + statusBarHeight}]}>
                         <Image style={{ width: scaleSize(60), height: scaleSize(45) }} source={require('../../../images/logo-white.png')} />
                         <TouchableOpacity onPress={() => {
                             this.props.navigation.push('PopHistory', {
@@ -458,11 +467,12 @@ const styles = StyleSheet.create({
     },
     banner: {
         width: scaleSize(750),
-        height: scaleSize(300)
+        height: scaleSize(360),
+       
     },
     bannerimg: {
         width: scaleSize(750),
-        height: scaleSize(300),
+        height: scaleSize(360)
     },
     homeprosearch: {
         position: 'absolute',
@@ -559,7 +569,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center', marginBottom: scaleSize(10)
     },
     tongzhi: {
-        position: 'absolute', top: scaleSize(120), zIndex: 9999, backgroundColor: 'rgba(0,0,0,0.7)', flexDirection: 'row', alignItems: 'center',
+        // top: scaleSize(120),
+        position: 'absolute',  zIndex: 9999, backgroundColor: 'rgba(0,0,0,0.7)', flexDirection: 'row', alignItems: 'center',
         justifyContent: 'space-between', paddingVertical: scaleSize(4), paddingLeft: scaleSize(4), paddingRight: scaleSize(20), borderRadius: scaleSize(28),
         width: scaleSize(540), left: (width - scaleSize(540)) / 2
     },
