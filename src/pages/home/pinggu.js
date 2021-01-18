@@ -15,6 +15,7 @@ import Textarea from 'react-native-textarea';
 import PhotoSelector from '../components/photoselector'
 import { inject, observer } from 'mobx-react'; 
 import LocationBar from '../components/locationbar';
+import * as tools from '../../tools/tool'
 const addIcon = require('../../../images/addphoto.png')
 const loadingIcon = require('../../../images/loadingnew.gif')
 
@@ -31,9 +32,7 @@ class Pinggu extends Component {
                 shadowOpacity: 0,
                 backgroundColor: '#ec5947',
                 borderBottomWidth: 0,
-                elevation: 0,
-                paddingTop: 
-                StatusBar.currentHeight
+                elevation: 0
             }
         }
     }
@@ -107,6 +106,7 @@ class Pinggu extends Component {
     }
     Save = () => {
         let that = this;
+        
         var newdata = this.state.data.slice();
         let { images } = this.state;
         newdata.push({ "Key": "Id", "Value": 0 });
