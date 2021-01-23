@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {SafeAreaView,Alert, Animated, View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, StatusBar, Dimensions, NativeModules } from 'react-native'
+import {SafeAreaView, Animated, View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, StatusBar, Dimensions, NativeModules,Alert } from 'react-native'
 import { scaleSize, setSpText, scaleSizeW, Icons } from "../../tools/util";
 import Swiper from 'react-native-swiper';
 import commonStyle from '../../tools/commonstyles'
@@ -113,7 +113,7 @@ class HomePage extends Component {
                 ]);
             }
             return Linking.openURL(url);
-        }).catch(err => Alert(err));
+        }).catch(err => Alert.alert(err));
     }
     // 当一帧滚动结束的时候调用
     onScrollAnimationEnd = (e) => {
