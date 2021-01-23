@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {SafeAreaView, Animated, View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, StatusBar, Dimensions, NativeModules } from 'react-native'
+import {SafeAreaView,Alert, Animated, View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, StatusBar, Dimensions, NativeModules } from 'react-native'
 import { scaleSize, setSpText, scaleSizeW, Icons } from "../../tools/util";
 import Swiper from 'react-native-swiper';
 import commonStyle from '../../tools/commonstyles'
@@ -18,7 +18,6 @@ let statusBarHeight;
 	 } else {
 	     statusBarHeight = StatusBar.currentHeight;
 }
-
 const { width, height } = Dimensions.get('window');
 const interval = null
 

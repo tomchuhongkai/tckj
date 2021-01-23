@@ -170,6 +170,7 @@ class Actions extends Component {
             outputRange: [0, 1]
         })
         return (<SafeAreaView style={[commonStyle.safeViewWithCusHead, { backgroundColor: '#fff', paddingTop: scaleSize(80) }]}>
+           {Platform.OS=='ios'?<View style={commonStyle.fixheight}></View>:null}
             <FlatList
                 style={{ backgroundColor: '#fff', height: '100%' }}
                 renderItem={this.renderItems}

@@ -32,8 +32,6 @@ class Pinggu extends Component {
                 backgroundColor: '#ec5947',
                 borderBottomWidth: 0,
                 elevation: 0,
-                paddingTop: 
-                StatusBar.currentHeight
             }
         }
     }

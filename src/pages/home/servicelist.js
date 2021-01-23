@@ -149,6 +149,7 @@ class ServiceList extends Component {
     render() {
         let that =this;
         return (<SafeAreaView style={[commonStyle.safeViewWithCusHead, { backgroundColor: '#fff' }]}>
+           {Platform.OS=='ios'?<View style={commonStyle.fixheight}></View>:null}
             <FlatList
                 style={{ backgroundColor: '#fff', paddingTop: scaleSizeW(20) }}
                 renderItem={this.renderItems}

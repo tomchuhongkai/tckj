@@ -49,8 +49,9 @@ class ServiceDetail extends Component {
             headerStyle: {
                 height: StatusBar.currentHeight,
                 shadowOpacity: 0,
-                elevation: 0,
                 backgroundColor: '#4576f7',
+                elevation: 0,
+                borderBottomWidth: 0,
             }
         }
     }
@@ -115,6 +116,7 @@ class ServiceDetail extends Component {
         }
         
         return (<SafeAreaView style={[commonStyle.safeViewWithCusHead, styles.popbg]}>
+         
             <ScrollView>
                 <View style={commonStyle.postshow}>
                     {/* <View style={commonStyle.posttop}>

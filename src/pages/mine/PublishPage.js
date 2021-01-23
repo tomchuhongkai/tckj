@@ -19,7 +19,7 @@ const resetAction = StackActions.reset({
 @inject('store')
 @observer
 class PublishPage extends Component {
-    static navigationOptions = () => {
+    static navigationOptions = ({ navigation }) => {
         return {
             headerTitle: null,
             headerLeft: null,
@@ -29,7 +29,7 @@ class PublishPage extends Component {
                 shadowOpacity: 0,
                 backgroundColor: '#4576f7',
                 elevation: 0,
-                borderWidth: 0
+                borderBottomWidth: 0,
             }
         }
     }
