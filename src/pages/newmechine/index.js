@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, Linking, RefreshControl, StatusBar, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, Linking, RefreshControl, StatusBar, SafeAreaView, Platform } from 'react-native'
 import { observer, inject } from 'mobx-react'
 import { Icons, scaleSizeW, scaleSize } from "../../tools/util";
 import commonStyle from '../../tools/commonstyles'
@@ -190,8 +190,9 @@ class NewMechineList extends Component {
     render() {
         let that = this;
         return (<SafeAreaView style={[commonStyle.safeViewWithCusHead, { backgroundColor: '#fff', paddingTop: scaleSizeW(90) }]}>
+           {Platform.OS=='ios'?<View style={commonStyle.fixheight}></View>:null}
             <FlatList
-                style={{ backgroundColor: '#f4f4f4' }}
+                style={{ backgroundColor: '#f4f4f4'}}
                 renderItem={this.renderItems}
                 data={this.state.Data}
                 keyExtractor={this._keyExtractor}

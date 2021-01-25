@@ -186,6 +186,7 @@ class SecondMechinePage extends Component {
     render() {
         let that = this;
         return (<SafeAreaView style={[commonStyle.safeView, { backgroundColor: '#fff', paddingTop: scaleSize(80) }]}>
+           {Platform.OS=='ios'?<View style={commonStyle.fixheight}></View>:null}
             <FlatList
                 style={{ backgroundColor: '#f4f4f4' }}
                 renderItem={this.renderItems}

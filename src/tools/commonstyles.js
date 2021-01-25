@@ -50,6 +50,7 @@ var commonStyle = StyleSheet.create({
         flex: 1,
         position: 'relative', paddingTop: scaleSizeW(90)
     },
+    fixheight:{height:scaleSize(82)},
     scrollViewContainer: {
         minHeight:'100%'
     },

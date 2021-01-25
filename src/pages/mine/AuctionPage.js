@@ -29,7 +29,7 @@ class AuctionPage extends Component {
                 shadowOpacity: 0,
                 backgroundColor: '#4576f7',
                 elevation: 0,
-                borderWidth: 0
+                borderBottomWidth: 0,
             }
         }
     }

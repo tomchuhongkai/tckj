@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import * as api from '../../mocks/api'
 import * as tools from '../../tools/tool'
 import * as locals from '../../tools/localdata'
-import clear from 'react-native-clear-cache';
+import clear from 'react-native-clear-cache'; 
 import LinearGradient from 'react-native-linear-gradient'
 
 const resetAction = StackActions.reset({
@@ -30,7 +30,8 @@ class MinePage extends Component {
                 height: StatusBar.currentHeight,
                 shadowOpacity: 0,
                 backgroundColor: '#4576f7',
-                borderWidth: 0
+                elevation: 0,
+                borderBottomWidth: 0,
             }
         }
     }
