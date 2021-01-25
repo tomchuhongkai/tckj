@@ -18,7 +18,6 @@ let statusBarHeight;
 	 } else {
 	     statusBarHeight = StatusBar.currentHeight;
 }
-
 const { width, height } = Dimensions.get('window');
 const interval = null
 
