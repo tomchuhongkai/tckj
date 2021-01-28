@@ -287,7 +287,7 @@ class HomePage extends Component {
                                 <Text style={styles.hometabtxt}>免费评估</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.hometab} onPress={() => this.props.navigation.push('Actions')}>
+                        <TouchableOpacity style={styles.hometab} onPress={() => this.props.navigation.push('Actions',{istab:false})}>
                             <View>
                                 <Image style={styles.hometabimg} source={require('../../../images/icon-auction.png')} />
                                 <Text style={styles.hometabtxt}>在线竞价</Text>

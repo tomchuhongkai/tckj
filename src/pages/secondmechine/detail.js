@@ -179,10 +179,8 @@ class SecondMechinePage extends Component {
                         })}
                     </View>
                     }
-                    <TouchableOpacity style={[commonStyle.fullWidthButton, styles.btncontact]} onPress={() => { this.callUser(Detail.customAttributes.ContactPhone.value) }}>
-                        <Text style={commonStyle.fullWidthButton_text}>联系卖家</Text>
-                    </TouchableOpacity>
                 </View>
+                <View style={{height:scaleSize(50)}}></View>
             </ScrollView> : null}
             <Loading show={!this.state.loaded}/>
             <CustomizeHeader Title="详情" theme="blue" goBack={() => { 
@@ -191,6 +189,9 @@ class SecondMechinePage extends Component {
                 }
                 this.props.navigation.goBack() }}>
             </CustomizeHeader>
+            <TouchableOpacity style={[commonStyle.fullWidthButton, styles.btncontact]} onPress={() => { this.callUser(Detail.customAttributes.ContactPhone.value) }}>
+                        <Text style={commonStyle.fullWidthButton_text}>联系卖家</Text>
+           </TouchableOpacity>
         </SafeAreaView>)
     }
 }
@@ -225,5 +226,5 @@ const styles = StyleSheet.create({
     itemtext: { color: '#161616', fontSize: scaleSize(28) },
     desctext: { color: '#777777', fontSize: scaleSize(28) },
     descimg: { marginBottom: scaleSize(28) },
-    btncontact: { marginBottom: scaleSize(28), backgroundColor: '#4576f7' }
+    btncontact: { marginBottom: scaleSize(28), backgroundColor: '#4576f7',position:'absolute' ,bottom:scaleSize(10),width:'100%'}
 })

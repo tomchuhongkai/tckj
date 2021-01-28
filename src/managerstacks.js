@@ -317,7 +317,7 @@ const ManagerStacks = {
     NewMechine: NewMechineStack,
     Actions:ActionsStack,
     SecondMechine: SecondMechineStack,
-    MechineParts: MechinePartsStack,
+    // MechineParts: MechinePartsStack,
     MyInfo: MyInfoStack
 }
 export default ManagerStacks

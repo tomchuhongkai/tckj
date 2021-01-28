@@ -29,7 +29,8 @@ class MechinePartsPage extends Component {
                 height: StatusBar.currentHeight,
                 shadowOpacity: 0,
                 backgroundColor: '#4576f7',
-                borderWidth: 0
+                elevation: 0,
+                borderBottomWidth: 0,
             }
         }
     }
@@ -138,6 +139,7 @@ class MechinePartsPage extends Component {
         let that = this;
         const parents = this.state.Brands.filter(x => x.parentId === 0);
         return (<SafeAreaView style={[commonStyle.safeViewWithCusHead,{ backgroundColor: '#f2f2f2', paddingBottom: scaleSizeW(20), flex: 1 }]}>
+           {Platform.OS=='ios'?<View style={commonStyle.fixheight}></View>:null}
                 
             {/* 数据层 */}
            
@@ -159,7 +161,7 @@ class MechinePartsPage extends Component {
                     <Waiting Content="当前无数据" style={{ marginTop: scaleSizeW(200) }} />
                 }
             />
-            <CustomizeHeader Title="配件商家" showBack={true} goBack={() => { this.props.navigation.goBack() }} />
+            <CustomizeHeader  theme='blue'  Title="配件商家" showBack={true} goBack={() => { this.props.navigation.goBack() }} />
         </SafeAreaView>);
     }
 }
