@@ -33,6 +33,12 @@ const TabHeader = (props) => {
                     _this.scrollToIndex({ index: index, animated: true });
                 }
             }}
+            onScrollToIndexFailed={info => {
+                const wait = new Promise(resolve => setTimeout(resolve, 700));
+                wait.then(() => {
+                  fListRef.current?.scrollToIndex({ index: index, animated: true/false });
+                });
+              }}
             renderItem={(dataRow) => {
                 let route = dataRow.item;
                 let idx = dataRow.index;
@@ -106,6 +112,9 @@ class TabContainerView extends Component {
         const tabNav = createMaterialTopTabNavigator(routers, {
             initialRouteName: initalRoute,
             tabBarComponent: TabHeader,
+            tabBarOptions:{
+                scrollEnabled: true
+            },
             lazy: true
         });
         const TabContainer = createAppContainer(tabNav);

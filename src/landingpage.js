@@ -106,6 +106,7 @@ class LandingPage extends Component {
                 fromUrl: `${tools.GetRootUrl()}home/android`,
                 toFile: filePath,
                 progress: res => {
+                    console.log(res)
                     that.setState({
                         percentage: parseInt((res.bytesWritten / res.contentLength).toFixed(2) * 100, 10)
                     })

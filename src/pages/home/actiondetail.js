@@ -168,13 +168,19 @@ class ActionDetail extends Component {
             })
     }
     goToBaoMing = () => {
+        let that = this;
         const { userInfo } = this.props.store.config;
         if (userInfo.nickName === '') {
             this.props.navigation.navigate('SignIn')
             return;
         }
         const { Detail } = this.state;
-        this.props.navigation.push('BaoMing', { id: Detail.id })
+        this.props.navigation.push('BaoMing', {
+            id: Detail.id,
+            callBack: () => {
+                that.loadData()
+            }
+        })
     }
     render() {
         const { Detail } = this.state;
@@ -263,22 +269,22 @@ class ActionDetail extends Component {
             }
             else {
                 bititems = Detail.bidItems.map((item, index) => {
-                    let zhuangtai="";
-                    if(item.isWinner){
-                        zhuangtai="成交";
-                    }else{
-                        if(index===0){
-                            zhuangtai="领先";
+                    let zhuangtai = "";
+                    if (item.isWinner) {
+                        zhuangtai = "成交";
+                    } else {
+                        if (index === 0) {
+                            zhuangtai = "领先";
                         }
-                        else{zhuangtai="出局";}
+                        else { zhuangtai = "出局"; }
                     }
-                    return (<View key={index} style={styles.jiluitem}><Text style={[styles.txt11,(item.isWinner || index===0)?styles.bidwin:styles.bidout]}>{zhuangtai}</Text><Text style={styles.txt11}>{item.userNickName}</Text><Text style={styles.txt11}>{item.bidPrice}</Text><Text style={[styles.txt11, { flex: 1 }]}>{item.strCreatedOn}</Text></View>)
+                    return (<View key={index} style={styles.jiluitem}><Text style={[styles.txt11, (item.isWinner || index === 0) ? styles.bidwin : styles.bidout]}>{zhuangtai}</Text><Text style={styles.txt11}>{item.userNickName}</Text><Text style={styles.txt11}>{item.bidPrice}</Text><Text style={[styles.txt11, { flex: 1 }]}>{item.strCreatedOn}</Text></View>)
                 })
             }
             tabview = (<View style={styles.jilu}>
                 <View style={styles.jiluitem}><Text style={styles.txt9}>状态</Text><Text style={styles.txt9}>昵称</Text><Text style={styles.txt9}>价格</Text><Text style={[styles.txt9, { flex: 1 }]}>时间</Text></View>
                 <View style={styles.jiluitems}>{bititems}</View>
-            </View>) 
+            </View>)
         }
 
         if (Detail.photos != null && Detail.photos.length > 0) {
@@ -579,6 +585,6 @@ const styles = StyleSheet.create({
     },
     txt9: { fontWeight: 'bold', color: '#444', fontSize: scaleSize(24), textAlign: 'center', padding: scaleSize(8), width: scaleSize(130), textAlign: 'center' },
     txt11: { color: '#444', fontSize: scaleSize(22), textAlign: 'center', padding: scaleSize(8), width: scaleSize(130), textAlign: 'center' },
-    bidwin:{color:'#d91615'},
-    bidout:{color:'#848484'}
+    bidwin: { color: '#d91615' },
+    bidout: { color: '#848484' }
 })

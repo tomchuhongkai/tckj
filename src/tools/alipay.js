@@ -1,2 +1,5 @@
-import { NativeModules } from 'react-native';
-export default NativeModules.Alipay;
+import { NativeModules, Platform } from 'react-native';
+import Alipay from 'react-native-s-alipay';
+export default {
+    pay: Platform.OS=='android'?NativeModules.Alipay.pay:Alipay.pay
+}

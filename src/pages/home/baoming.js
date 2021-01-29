@@ -3,29 +3,19 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image, StatusBar,
 import { SafeAreaView, NavigationActions, StackActions } from 'react-navigation'
 import { inject, observer } from 'mobx-react'
 import commonStyle from '../../tools/commonstyles'
-import { config, scaleSize, setSpText, scaleSizeW, clearBoxPng, defaultAvatar } from '../../tools/util'
+import { scaleSize, scaleSizeW } from '../../tools/util'
 import CustomizeHeader from '../components/customizeheader'
-import RightButton from '../components/rightButton'
-import BackButton from '../components/backButton'
-import HeaderTitle from '../components/headerTitle'
-import AutoHeightImage from 'react-native-auto-height-image';
-import Swiper from 'react-native-swiper';
 import LinearGradient from 'react-native-linear-gradient'
 import * as api from '../../mocks/api'
-import { Toast } from '@ant-design/react-native'
+import { Toast } from '../../tools/tool'
 import Waiting from '../commons/waiting'
-import CustomAttribute from '../components/customattribute'
-import Alipay from '../../tools/alipay'
-
-const descimgwidth = Dimensions.get('window').width - 40;
-var _this;
+import Alipay from 'react-native-s-alipay'
 
 @inject('store')
 @observer
 class BaoMing extends Component {
     constructor(props) {
         super(props);
-        _this = this;
         this.state = {
             loaded: false,
             checked: false,
@@ -94,12 +84,38 @@ class BaoMing extends Component {
         }
     }
     doalipay = () => {
+        let that = this;
+        let callBack = this.props.navigation.state.params.callBack;
         api.PayForBid(this.state.Detail.bidId)
             .then(res => {
-                console.log(res.data);
                 let data = res.data;
-                let ret = Alipay.pay(data);
-                console.log(ret)
+                Alipay.pay(data).then(res => {
+                    if (res.result !== "") {
+                        var response = JSON.parse(res.result);
+                        if (response.alipay_trade_app_pay_response !== undefined && response.alipay_trade_app_pay_response.msg === 'Success') {
+                            var sign = response.sign;
+                            let out_trade_no = response.alipay_trade_app_pay_response.out_trade_no;
+                            let trade_no = response.alipay_trade_app_pay_response.trade_no;
+                            let app_id = response.alipay_trade_app_pay_response.app_id;
+                            var data = {
+                                Sign: sign,
+                                OutTradeNo: out_trade_no,
+                                TradeNo: trade_no,
+                                AppId: app_id,
+                                PaymentMethod: '支付宝支付',
+                            }
+                            api.PayCompleted(data).then(result => {
+                                if (result.data.result == 1) {
+                                    Toast.info('支付成功');
+                                    callBack();
+                                    that.props.navigation.goBack();
+                                } else {
+                                    Toast.info('支付成功，数据更新失败，请联系管理员');
+                                }
+                            })
+                        }
+                    }
+                });
             })
     }
     doaction = (id, price) => {
@@ -109,7 +125,6 @@ class BaoMing extends Component {
             bidPrice: price
         })
             .then(res => {
-                console.log(res.data)
                 if (res.data.result === 0) {
                     Toast.fail(res.data.message)
                 }
