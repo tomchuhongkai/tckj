@@ -81,6 +81,7 @@ class SecondMechinePage extends Component {
         this.setState({
             Detail: _obj
         }, () => {
+            if(callBack!==undefined)
             callBack(item);
         })
     }
