@@ -329,7 +329,7 @@ class JoinUs extends Component {
             return (<Waiting />);
         }
         return (<View style={[commonStyle.safeViewWithCusHead, { backgroundColor: '#fff' }]}>
-            <CustomizeHeader showBack={true} Title="申请合作" goBack={() => { this.props.navigation.goBack() }}>
+            <CustomizeHeader  theme={'blue'} showBack={true} Title="申请合作" goBack={() => { this.props.navigation.goBack() }}>
             </CustomizeHeader>
             <ScrollView style={{ width: '100%', height: '100%' }} keyboardShouldPersistTaps={'always'} contentContainerStyle={commonStyle.scrollViewContainer}>
                 <View style={styles.pinggucontainer}>

@@ -39,6 +39,7 @@ class Actions extends Component {
             },
             textBoxWidth: new Animated.Value(0),
             showSearch: false,
+            isFromTab: props.navigation.getParam('istab') == undefined ? true : props.navigation.getParam('onlyProvince'),
         }
     }
     componentDidMount = (filter) => {
@@ -186,7 +187,14 @@ class Actions extends Component {
                     />
                 }
             />
-            <CustomizeHeader showBack={false} style={{ width: '100%', backgroundColor: '#4576f7', paddingLeft: 0 }}>
+              <CustomizeHeader showBack={false} style={{ width: '100%', backgroundColor: '#4576f7', paddingLeft: 0 }}>
+                {!this.state.isFromTab ?
+                    <View style={{ marginLeft: scaleSizeW(0), width: scaleSizeW(90), position: 'absolute', left: 0 }}>
+                        <TouchableOpacity style={{ paddingLeft: scaleSizeW(40) }} onPress={() => that.props.navigation.goBack()}>
+                            <Image style={{ width: scaleSizeW(18), height: scaleSizeW(30) }} source={require('../../../images/back_icon_white.png')} />
+                        </TouchableOpacity>
+                    </View> : null
+                }
                 {/* <View style={{ marginLeft: scaleSizeW(0), width: scaleSizeW(90), position: 'absolute', left: 0 }}>
                     <TouchableOpacity onPress={() => {
                         that.props.navigation.goBack()
