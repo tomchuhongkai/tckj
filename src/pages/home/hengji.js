@@ -225,7 +225,7 @@ class HengJi extends Component {
 
                         <View style={styles.selectline}>
                             <Text style={styles.selname}>{item.value.displayName} {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
-                            <TextInput style={styles.inputxt} value={itemval === '请输入' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder={'请输入'}></TextInput>
+                            <TextInput returnKeyType='done' style={styles.inputxt} value={itemval === '请输入' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder={'请输入'}></TextInput>
                             <TouchableOpacity onPress={() => this.getPosition(itemkey)}>
                                 <Image source={require('../../../images/location.png')} style={styles.map} />
                             </TouchableOpacity>
@@ -238,7 +238,7 @@ class HengJi extends Component {
                         <View style={[styles.pinggucontainer, styles.servicefee]}>
                             <View style={styles.selectline}>
                                 <Text style={styles.selname}>收费标准 {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
-                                <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder='例如100元/小时'></TextInput>
+                                <TextInput returnKeyType='done' style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder='例如100元/小时'></TextInput>
                             </View>
                         </View>
                     </View>)
@@ -249,7 +249,7 @@ class HengJi extends Component {
                             <View key={index} style={styles.pinggucontainer}>
                                 <View style={styles.selectline}>
                                     <Text style={styles.selname}>{item.value.displayName} {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
-                                    <TextInput style={styles.inputxt} value={itemval === '请输入' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder={'请输入'}></TextInput>
+                                    <TextInput returnKeyType='done' style={styles.inputxt} value={itemval === '请输入' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder={'请输入'}></TextInput>
                                     <View style={styles.map}></View>
                                 </View></View>
                         );
@@ -323,7 +323,7 @@ class HengJi extends Component {
                     <View style={[styles.pinggucontainer, styles.servicefee]}>
                         <View style={styles.selectline}>
                             <Text style={styles.selname}>标题 <Text style={styles.required}>*</Text></Text>
-                            <TextInput style={styles.inputxt} value={this.state.title} onChangeText={(v) => { this.setState({ title: v }) }} placeholderTextColor="#9b9b9b" placeholder={'请输入服务标题'}></TextInput>
+                            <TextInput returnKeyType='done' style={styles.inputxt} value={this.state.title} onChangeText={(v) => { this.setState({ title: v }) }} placeholderTextColor="#9b9b9b" placeholder={'请输入服务标题'}></TextInput>
                         </View>
                     </View>
                 </View>

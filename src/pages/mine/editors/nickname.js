@@ -66,7 +66,7 @@ class NicknameEdit extends React.Component {
                         }} style={styles.signatureBox} /> */}
                             <TextInput onChangeText={(v) => { this.changeSign(v) }}
                                 onChangeText={(v) => { this.setState({ Nickname: v }) }}
-                                value={this.state.Nickname}
+                                value={this.state.Nickname} returnKeyType='done'
                                 placeholder={this.props.store.config.userInfo.nickName}
                                 style={commonStyle.fields_textroundbox} />
                         </View>

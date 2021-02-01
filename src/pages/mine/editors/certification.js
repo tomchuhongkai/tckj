@@ -149,7 +149,7 @@ export default class CertificationEdit extends React.Component {
                                     <TextInput
                                         onChangeText={(v) => { this.changeInfo({ Name: v }) }}
                                         value={this.state.Name}
-                                        placeholder={'请输入您的姓名'}
+                                        placeholder={'请输入您的姓名'} returnKeyType='done'
                                         style={commonStyle.fields_textroundbox} />
                                 </View>
                             </View>
@@ -158,7 +158,7 @@ export default class CertificationEdit extends React.Component {
                                     <TextInput
                                         onChangeText={(v) => { this.changeInfo({ Ids: v }) }}
                                         value={this.state.Ids}
-                                        placeholder={'请输入您的身份证号'}
+                                        placeholder={'请输入您的身份证号'} returnKeyType='done'
                                         style={commonStyle.fields_textroundbox} />
                                 </View>
                             </View>
@@ -170,7 +170,7 @@ export default class CertificationEdit extends React.Component {
                                     <TextInput
                                         onChangeText={(v) => { this.changeInfo({ Name: v }) }}
                                         value={this.state.Name}
-                                        placeholder={'请输入您的公司名称'}
+                                        placeholder={'请输入您的公司名称'} returnKeyType='done'
                                         style={commonStyle.fields_textroundbox} />
                                 </View>
                             </View>
@@ -179,7 +179,7 @@ export default class CertificationEdit extends React.Component {
                                     <TextInput
                                         onChangeText={(v) => { this.setState({ Address: v }) }}
                                         value={this.state.Address}
-                                        placeholder={'请输入您的公司地址'}
+                                        placeholder={'请输入您的公司地址'} returnKeyType='done'
                                         style={commonStyle.fields_textroundbox} />
                                 </View>
                             </View>

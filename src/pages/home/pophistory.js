@@ -75,23 +75,23 @@ class PopHistory extends Component {
             <CustomizeHeader showBack={false} style={{ paddingLeft: scaleSizeW(30) }}>
                 <View style={styles.headerRow}>
                     <Image style={styles.searchimg} source={require('../../../images/icon-search.png')} />
-                    {type === 'MachineParts' ? <TextInput onChange={(e) => {
+                    {type === 'MachineParts' ? <TextInput returnKeyType='done' onChange={(e) => {
                         this.changeValue(e.nativeEvent.text)
                     }} style={styles.input} autoFocus={true} placeholder="机器配件" value={value} onSubmitEditing={this.search} /> :
-                        type === 'NewMachine' ? <TextInput onChange={(e) => {
+                        type === 'NewMachine' ? <TextInput returnKeyType='done' onChange={(e) => {
                             this.changeValue(e.nativeEvent.text)
                         }} style={styles.input} style={styles.input} autoFocus={true} placeholder="新机器" onSubmitEditing={this.search} value={value} /> :
-                            type === 'OldMachine' ? <TextInput onChange={(e) => {
+                            type === 'OldMachine' ? <TextInput returnKeyType='done' onChange={(e) => {
                                 this.changeValue(e.nativeEvent.text)
                             }} style={styles.input} style={styles.input} autoFocus={true} placeholder="二手机" onSubmitEditing={this.search} value={value} /> :
-                                type === 'BuyProduct' ? <TextInput onChange={(e) => {
+                                type === 'BuyProduct' ? <TextInput returnKeyType='done' onChange={(e) => {
                                     this.changeValue(e.nativeEvent.text)
                                 }} style={styles.input} style={styles.input} autoFocus={true} placeholder="找货" onSubmitEditing={this.search} value={value} /> :
-                                    type === 'Forum' ? <TextInput style={styles.input} autoFocus={true} placeholder="论坛" onSubmitEditing={this.search} value={value} /> :
+                                    type === 'Forum' ? <TextInput returnKeyType='done' style={styles.input} autoFocus={true} placeholder="论坛" onSubmitEditing={this.search} value={value} /> :
                                         type === 'SendProduct' ? <TextInput onChange={(e) => {
                                             this.changeValue(e.nativeEvent.text)
                                         }} style={styles.input} style={styles.input} autoFocus={true} placeholder="发货" onSubmitEditing={this.search} value={value} /> :
-                                            <TextInput style={styles.input} onChange={(e) => {
+                                            <TextInput returnKeyType='done' style={styles.input} onChange={(e) => {
                                                 this.changeValue(e.nativeEvent.text)
                                             }} style={styles.input} autoFocus={true} placeholder="搜索" value={value} onSubmitEditing={this.search} />}
                     <TouchableOpacity onPress={() => {

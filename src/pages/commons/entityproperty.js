@@ -239,7 +239,7 @@ class EntityProperty extends Component {
                     <View style={commonStyle.commonflexbetween}>
                         <Text style={styles.selname}>{item.value.displayName} {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
                     </View>
-                    <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.props.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder="请输入"></TextInput>
+                    <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.props.onChange(itemkey, v) }} returnKeyType='done' placeholderTextColor="#9b9b9b" placeholder="请输入"></TextInput>
                 </View>
             </View>
         );
@@ -285,7 +285,7 @@ class EntityProperty extends Component {
                         <View style={commonStyle.commonflexbetween}>
                             <Text style={styles.selname}>收费标准 {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
                         </View>
-                        <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.props.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder="请输入"></TextInput>
+                        <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.props.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder="请输入" returnKeyType='done'></TextInput>
                     </View>
                 </View>
             </View>)
@@ -297,7 +297,7 @@ class EntityProperty extends Component {
                         <View style={commonStyle.commonflexbetween}>
                             <Text style={styles.selname}>{item.value.displayName} {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
                         </View>
-                        <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.props.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder="请输入"></TextInput>
+                        <TextInput style={styles.inputxt} value={itemval === '请选择' ? '' : itemval} onChangeText={(v) => { this.props.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder="请输入" returnKeyType='done'></TextInput>
                     </View>
                 </View>
             );
@@ -434,7 +434,7 @@ class EntityProperty extends Component {
             <View key={index} style={_containerStyle}>
                 <View style={styles.selectline}>
                     <Text style={styles.selname}>{item.value.displayName} {item.value.isRequired ? (<Text style={styles.required}>*</Text>) : null}</Text>
-                    <TextInput style={styles.inputxt} value={itemval === '请输入' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder={'请输入'}></TextInput>
+                    <TextInput style={styles.inputxt} value={itemval === '请输入' ? '' : itemval} onChangeText={(v) => { this.onChange(itemkey, v) }} placeholderTextColor="#9b9b9b" placeholder={'请输入'} returnKeyType='done'></TextInput>
                     <TouchableOpacity onPress={() => this.getPosition(itemkey)}>
                         <Image source={require('../../../images/location.png')} style={styles.map} />
                     </TouchableOpacity>

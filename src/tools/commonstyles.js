@@ -751,7 +751,13 @@ var commonStyle = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'flex-start',
-        paddingTop:scaleSizeW(20),
+        paddingBottom:scaleSizeW(20),
+    },
+    shiminHeader:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'flex-start',
         paddingBottom:scaleSizeW(20),
     },
     companyColumn:{
@@ -788,7 +794,7 @@ var commonStyle = StyleSheet.create({
         height:scaleSizeW(30)
     },
     companyTitle:{
-
+        marginBottom:scaleSizeW(10)
     },
     companyTitleText:{
         fontSize:setSpText(32)

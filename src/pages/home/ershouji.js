@@ -12,6 +12,7 @@ import * as api from '../../mocks/api'
 import Loading from '../components/loading'
 import { Toast } from '../../tools/tool'
 import LocationBar from '../components/locationbar';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 const addIcon = require('../../../images/addphoto.png')
 const loadingIcon = require('../../../images/loadingnew.gif')
 
@@ -198,12 +199,13 @@ class Ershouji extends Component {
             <CustomizeHeader showBack={true} Title="二手机" goBack={() => { this.props.navigation.goBack() }}>
             </CustomizeHeader>
             <Loading show={!this.state.show}/>
+            <KeyboardAwareScrollView>
             {this.state.show?<ScrollView style={{ width: '100%', height: '100%' }} keyboardShouldPersistTaps={'always'} contentContainerStyle={commonStyle.scrollViewContainer}>
                 <View style={styles.pinggucontainer}>
 
                     <View style={styles.selectline}>
                         <Text style={styles.selname}>标题 <Text style={styles.required}>*</Text></Text>
-                        <TextInput style={styles.inputxt} value={this.state.title} onChangeText={(v) => { this.setState({ title: v }) }} placeholderTextColor="#9b9b9b" placeholder="请输入标题"></TextInput>
+                        <TextInput style={styles.inputxt} value={this.state.title} onChangeText={(v) => { this.setState({ title: v }) }} placeholderTextColor="#9b9b9b" returnKeyType='done' placeholder="请输入标题"></TextInput>
                     </View></View>
                 {this.renderInfo()}
                 <View style={styles.pinggucontainer}>
@@ -227,6 +229,7 @@ class Ershouji extends Component {
 
                 </View>
             </ScrollView>:null}
+            </KeyboardAwareScrollView>
         </View>)
     }
 }

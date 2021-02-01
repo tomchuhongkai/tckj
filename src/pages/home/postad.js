@@ -213,7 +213,7 @@ class PostAd extends Component {
 
                     <View style={styles.selectline}>
                         <Text style={styles.selname}>标题 <Text style={styles.required}>*</Text></Text>
-                        <TextInput style={styles.inputxt} value={this.state.title} onChangeText={(v) => { this.setState({ title: v }) }} placeholderTextColor="#9b9b9b" placeholder="请输入标题"></TextInput>
+                        <TextInput style={styles.inputxt} returnKeyType='done' value={this.state.title} onChangeText={(v) => { this.setState({ title: v }) }} placeholderTextColor="#9b9b9b" placeholder="请输入标题"></TextInput>
                     </View></View>
                 {this.renderInfo()}
                 <View style={styles.pinggucontainer}>

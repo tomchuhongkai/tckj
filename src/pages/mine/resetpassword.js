@@ -121,7 +121,7 @@ class ResetPassword extends Component {
                 */}
                 <View style={[commonStyle.fields_line, { marginTop: scaleSize(20) }]}>
                     <View style={commonStyle.wrapinput}>
-                        <TextInput placeholder='请输入原始密码' secureTextEntry={true} onChangeText={(v) => { this.setState({ OldPassword: v }) }} value={this.state.OldPassword} style={commonStyle.fields_textroundbox} />
+                        <TextInput placeholder='请输入原始密码' returnKeyType='done' secureTextEntry={true} onChangeText={(v) => { this.setState({ OldPassword: v }) }} value={this.state.OldPassword} style={commonStyle.fields_textroundbox} />
                         <View style={commonStyle.clearBox}>
                             <TouchableOpacity onPress={() => this.clearForm('OldPassword')}>
                                 <Image source={require('../../../images/cha.png')} style={this.state.OldPassword.length > 0 ? [styles.chaimg] : [styles.chaimg, styles.hide]} />
@@ -133,7 +133,7 @@ class ResetPassword extends Component {
 
                 <View style={commonStyle.fields_line}>
                     <View style={commonStyle.wrapinput}>
-                        <TextInput placeholder='请输入您的新密码' secureTextEntry={true} type="password" onChangeText={(v) => { this.setState({ NewPassword: v }) }} value={this.state.NewPassword} style={commonStyle.fields_textroundbox} />
+                        <TextInput placeholder='请输入您的新密码' returnKeyType='done' secureTextEntry={true} type="password" onChangeText={(v) => { this.setState({ NewPassword: v }) }} value={this.state.NewPassword} style={commonStyle.fields_textroundbox} />
                         <View style={commonStyle.clearBox}>
                             <TouchableOpacity onPress={() => this.clearForm('NewPassword')}>
                                 <Image source={require('../../../images/cha.png')} style={this.state.NewPassword.length > 0 ? [styles.chaimg] : [styles.chaimg, styles.hide]} />
@@ -144,7 +144,7 @@ class ResetPassword extends Component {
                 </View>
                 <View style={commonStyle.fields_line}>
                     <View style={commonStyle.wrapinput}>
-                        <TextInput placeholder='请确认您的新密码' secureTextEntry={true} type="password" onChangeText={(v) => { this.setState({ ConfirmPassword: v }) }} value={this.state.ConfirmPassword} style={commonStyle.fields_textroundbox} />
+                        <TextInput placeholder='请确认您的新密码' secureTextEntry={true} returnKeyType='done' type="password" onChangeText={(v) => { this.setState({ ConfirmPassword: v }) }} value={this.state.ConfirmPassword} style={commonStyle.fields_textroundbox} />
                         <View style={commonStyle.clearBox}>
                             <TouchableOpacity onPress={() => this.clearForm('ConfirmPassword')}>
                                 <Image source={require('../../../images/cha.png')} style={this.state.ConfirmPassword.length > 0 ? [styles.chaimg] : [styles.chaimg, styles.hide]} />

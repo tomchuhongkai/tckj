@@ -7,6 +7,7 @@ import * as tools from './tools/tool'
 import { scaleSizeW,setSpText, config, clearBoxPng } from './tools/util'
 import commonStyle from './tools/commonstyles'
 import CheckBox from './pages/components/checkbox' 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import CustomizeHeader from './pages/components/customizeheader'
 @inject('store')
@@ -188,6 +189,7 @@ class Register extends Component {
 
         return (
             <SafeAreaView style={commonStyle.safeView}>
+                <KeyboardAwareScrollView>
                 <ScrollView style={{ width: '100%', height: '100%' }} keyboardShouldPersistTaps={'always'} contentContainerStyle={commonStyle.scrollViewContainerLogin}>
                     <View style={commonStyle.fields_line}>
                         <Text style={commonStyle.bigtitle}>欢迎注册</Text>
@@ -234,6 +236,7 @@ class Register extends Component {
                     </View>
                 </ScrollView>
                 <CustomizeHeader goBack={() => { this.props.navigation.goBack() }} Title="" />
+                </KeyboardAwareScrollView>
             </SafeAreaView>);
     }
 }
